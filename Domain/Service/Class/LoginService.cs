@@ -3,9 +3,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 using EngenhariaSoftware.Domain.Entity;
-using EngenhariaSoftware.Dominio.Entity;
-using EngenhariaSoftware.Dominio.Repository.Interface;
-using EngenhariaSoftware.Dominio.Service.Interface;
+using EngenhariaSoftware.Domain.Repository.Interface;
+using EngenhariaSoftware.Domain.Service.Interface;
 using Microsoft.IdentityModel.Tokens;
 
 namespace EngenhariaSoftware.Domain.Service.Class

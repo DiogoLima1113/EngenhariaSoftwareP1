@@ -24,7 +24,7 @@ namespace EngenhariaSoftware.Domain.Repository.Class
             {
                 case "POSTGRES":
                 case "POSTGRESSQL":
-                    return new SqlConnection(_configuration.GetConnectionString("postgres"));//NpgsqlConnection(_configuration.GetConnectionString("postgres"));
+                    return new NpgsqlConnection(_configuration.GetConnectionString("postgres"));//SqlConnection(_configuration.GetConnectionString("postgres"));//
                 default:
                     throw new Exception("DataBaseProvider inválido");
             }

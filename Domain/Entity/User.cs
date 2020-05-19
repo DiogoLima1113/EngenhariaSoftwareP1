@@ -6,6 +6,10 @@ namespace EngenhariaSoftware.Domain.Entity
         public string AccessKey { get; set; }
 
         public UserType Tipo { get; set; } 
+
+        public string Nome { get; set; }
+
+        public string CPF { get; set; }
         
     }
 

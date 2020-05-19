@@ -1,7 +1,6 @@
 using EngenhariaSoftware.Domain.Entity;
-using EngenhariaSoftware.Dominio.Entity;
 
-namespace EngenhariaSoftware.Dominio.Service.Interface
+namespace EngenhariaSoftware.Domain.Service.Interface
 {
     public interface ILoginService
     {

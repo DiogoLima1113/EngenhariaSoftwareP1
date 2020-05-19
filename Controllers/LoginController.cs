@@ -1,6 +1,5 @@
 using EngenhariaSoftware.Domain.Entity;
-using EngenhariaSoftware.Dominio.Entity;
-using EngenhariaSoftware.Dominio.Service.Interface;
+using EngenhariaSoftware.Domain.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

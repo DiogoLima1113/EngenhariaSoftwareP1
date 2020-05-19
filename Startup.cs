@@ -6,8 +6,7 @@ using EngenhariaSoftware.Domain.Entity;
 using EngenhariaSoftware.Domain.Repository.Class;
 using EngenhariaSoftware.Domain.Repository.Interface;
 using EngenhariaSoftware.Domain.Service.Class;
-using EngenhariaSoftware.Dominio.Repository.Interface;
-using EngenhariaSoftware.Dominio.Service.Interface;
+using EngenhariaSoftware.Domain.Service.Interface;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -92,9 +91,15 @@ namespace EngenhariaSoftware
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api Financeira", Version = "v1" });
             });
 
+            //repositorios
             services.AddScoped<IConnectionProvider, ConnectionProvider>();
             services.AddScoped<IUsersDbRepository, UsersDbRepository>();
+            services.AddScoped<IProdutosDbRepository, ProdutosDbRepository>();
+
+            //services
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IProdutoService, ProdutoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

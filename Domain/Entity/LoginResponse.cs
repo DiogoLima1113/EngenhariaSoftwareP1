@@ -1,6 +1,6 @@
 using EngenhariaSoftware.Domain.Entity;
 
-namespace EngenhariaSoftware.Dominio.Entity
+namespace EngenhariaSoftware.Domain.Entity
 {
     public class LoginResponse
     {
