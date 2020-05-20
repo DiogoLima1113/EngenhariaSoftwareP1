@@ -95,11 +95,21 @@ namespace EngenhariaSoftware
             services.AddScoped<IConnectionProvider, ConnectionProvider>();
             services.AddScoped<IUsersDbRepository, UsersDbRepository>();
             services.AddScoped<IProdutosDbRepository, ProdutosDbRepository>();
+            services.AddScoped<IFormaPagamentosDbRepository, FormaPagamentosDbRepository>();
+            services.AddScoped<IClientesDbRepository, ClientesDbRepository>();
+            services.AddScoped<IVendaItensDbRepository, VendaItensDbRepository>();
+            services.AddScoped<IVendasDbRepository, VendasDbRepository>();
+            services.AddScoped<IComissaoDbRepository, ComissaoDbRepository>();
 
             //services
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IFormaPagamentoService, FormaPagamentoService>();
+            services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IVendaAdapter, VendaAdapter>();
+            services.AddScoped<IVendaService, VendaService>();
+            services.AddScoped<IComissaoService, ComissaoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

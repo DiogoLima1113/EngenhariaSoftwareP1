@@ -19,18 +19,18 @@ namespace EngenhariaSoftware.Domain.Service.Class
             _produtosRepository.Adicionar(produto);
         }
 
-        public void Deletar(string id)
+        public void Deletar(int id)
         {
             _produtosRepository.Deletar(id);
         }
 
-        public Produto Editar(string id, Produto produto)
+        public Produto Editar(int id, Produto produto)
         {
             _produtosRepository.Editar(id, produto);
             return _produtosRepository.Obter(id);
         }
 
-        public Produto Obter(string id)
+        public Produto Obter(int id)
         {
             return _produtosRepository.Obter(id);
         }

@@ -10,33 +10,33 @@ namespace EngenhariaSoftware.Controllers
     [Authorize("Bearer")]
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutosController : ControllerBase
+    public class ClientesController : ControllerBase
     {
-        private IProdutoService _service;
+        private IClienteService _service;
 
-        public ProdutosController(IProdutoService service)
+        public ClientesController(IClienteService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get()
+        public ActionResult<IEnumerable<Cliente>> Get()
         {
-            return new ActionResult<IEnumerable<Produto>>(_service.ObterTodos());
+            return new ActionResult<IEnumerable<Cliente>>(_service.ObterTodos());
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Produto> Get(int id)
+        [HttpGet("{cpf}")]
+        public ActionResult<Cliente> Get(string cpf)
         {
-            return _service.Obter(id);
+            return _service.Obter(cpf);
         }
 
         [HttpPost]
-        public void Post([FromBody] Produto produto)
+        public void Post([FromBody] Cliente cliente)
         {
             try
             {
-                _service.Adicionar(produto);
+                _service.Adicionar(cliente);
             }
             catch (Exception)
             {
@@ -44,13 +44,13 @@ namespace EngenhariaSoftware.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<Produto> Put(int id, [FromBody] Produto produto)
+        [HttpPut("{cpf}")]
+        public ActionResult<Cliente> Put(string cpf, [FromBody] Cliente cliente)
         {
-            ActionResult<Produto> resposta = null;
+            ActionResult<Cliente> resposta = null;
             try
             {
-                resposta = new ActionResult<Produto>(_service.Editar(id, produto));
+                resposta = new ActionResult<Cliente>(_service.Editar(cpf, cliente));
             }
             catch (Exception)
             {
@@ -59,12 +59,12 @@ namespace EngenhariaSoftware.Controllers
             return resposta;
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{cpf}")]
+        public void Delete(string cpf)
         {
             try
             {
-                _service.Deletar(id);
+                _service.Deletar(cpf);
             }
             catch (Exception)
             {

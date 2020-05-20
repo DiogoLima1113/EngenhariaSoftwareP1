@@ -7,12 +7,12 @@ namespace EngenhariaSoftware.Domain.Service.Interface
     {
         IEnumerable<Produto> ObterTodos();
         
-        Produto Obter(string id);
+        Produto Obter(int id);
 
         void Adicionar(Produto produto);
 
-        Produto Editar(string id, Produto produto);
+        Produto Editar(int id, Produto produto);
 
-        void Deletar(string id);
+        void Deletar(int id);
     }
 }

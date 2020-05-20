@@ -5,14 +5,14 @@ namespace EngenhariaSoftware.Domain.Repository.Interface
 {
     public interface IProdutosDbRepository
     {
-        Produto Obter(string produtoID);
+        Produto Obter(int produtoID);
 
         IEnumerable<Produto> ObterTodos();
 
         void Adicionar(Produto produto);
 
-        void Editar(string id, Produto produto);
+        void Editar(int id, Produto produto);
 
-        void Deletar(string id);
+        void Deletar(int id);
     }
 }

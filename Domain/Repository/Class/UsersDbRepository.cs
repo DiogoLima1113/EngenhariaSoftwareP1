@@ -53,7 +53,7 @@ namespace EngenhariaSoftware.Domain.Repository.Class
                             WHERE id = @Id",
                 new
                 {
-                    Id = user.Id,
+                    Id = id,
                     AccessKey = user.AccessKey,
                     Nome = user.Nome,
                     CPF = user.CPF,

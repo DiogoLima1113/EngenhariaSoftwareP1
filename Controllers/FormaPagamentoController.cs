@@ -10,53 +10,38 @@ namespace EngenhariaSoftware.Controllers
     [Authorize("Bearer")]
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutosController : ControllerBase
+    public class FormaPagamentoController : ControllerBase
     {
-        private IProdutoService _service;
+        private IFormaPagamentoService _service;
 
-        public ProdutosController(IProdutoService service)
+        public FormaPagamentoController(IFormaPagamentoService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get()
+        public ActionResult<IEnumerable<FormaPagamento>> Get()
         {
-            return new ActionResult<IEnumerable<Produto>>(_service.ObterTodos());
+            return new ActionResult<IEnumerable<FormaPagamento>>(_service.ObterTodos());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Produto> Get(int id)
+        public ActionResult<FormaPagamento> Get(int id)
         {
             return _service.Obter(id);
         }
 
         [HttpPost]
-        public void Post([FromBody] Produto produto)
+        public void Post([FromBody] FormaPagamento formaPagamento)
         {
             try
             {
-                _service.Adicionar(produto);
+                _service.Adicionar(formaPagamento);
             }
             catch (Exception)
             {
                 Response.StatusCode = 400;
             }
-        }
-
-        [HttpPut("{id}")]
-        public ActionResult<Produto> Put(int id, [FromBody] Produto produto)
-        {
-            ActionResult<Produto> resposta = null;
-            try
-            {
-                resposta = new ActionResult<Produto>(_service.Editar(id, produto));
-            }
-            catch (Exception)
-            {
-                Response.StatusCode = 400;
-            }
-            return resposta;
         }
 
         [HttpDelete("{id}")]

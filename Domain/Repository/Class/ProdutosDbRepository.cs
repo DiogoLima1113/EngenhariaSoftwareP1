@@ -30,7 +30,7 @@ namespace EngenhariaSoftware.Domain.Repository.Class
             }
         }
 
-        public void Deletar(string id)
+        public void Deletar(int id)
         {
             using (var con = _provider.CreateConnection())
             {
@@ -38,18 +38,18 @@ namespace EngenhariaSoftware.Domain.Repository.Class
             }
         }
 
-        public void Editar(string id, Produto produto)
+        public void Editar(int id, Produto produto)
         {
             using (var con = _provider.CreateConnection())
             {
-                con.Query($@"UPDATE usuarios 
+                con.Query($@"UPDATE produtos 
                             SET Descricao = @Descricao,
                                 Preco = @Preco,
                                 Categoria = @Categoria
                             WHERE id = @Id",
                 new
                 {
-                    Id = produto.Id,
+                    Id = id,
                     Descricao = produto.Descricao,
                     Preco = produto.Preco,
                     Categoria = produto.Categoria
@@ -57,7 +57,7 @@ namespace EngenhariaSoftware.Domain.Repository.Class
             }
         }
 
-        public Produto Obter(string id)
+        public Produto Obter(int id)
         {
             using (var connection = _provider.CreateConnection())
             {
