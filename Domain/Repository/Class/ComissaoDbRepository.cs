@@ -20,11 +20,13 @@ namespace EngenhariaSoftware.Domain.Repository.Class
             using (var con = _provider.CreateConnection())
             {
                 var valor = con.QueryFirstOrDefault<float>($@"SELECT SUM(ValorTotal) FROM venda
-                            WHERE IdUsuario = @IdUsuario
+                            WHERE IdUsuario = @IdUsuario AND data BETWEEN @DataInicio AND @DataFim
                             GROUP BY idUsuario",
                 new
                 {
-                    IdUsuario = comissao.IdUsuario
+                    IdUsuario = comissao.IdUsuario,
+                    DataInicio = comissao.DataInicio,
+                    DataFim = comissao.DataFim
                 });
                 con.Execute($@"INSERT INTO comissao 
                             (idUsuario, dataInicio, dataFim, valor) VALUES
